@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+
+  html, body {
+  overflow-x: hidden;
+}
+
+.cards-horizontal {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 10px;
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;     /* Firefox */
+  -webkit-overflow-scrolling: touch;  /* smooth scroll on iOS */
+}
+
+.cards-horizontal::-webkit-scrollbar {
+  display: none; /* hide scrollbar */
+}
+
+.cards-horizontal .card {
+  flex: 0 0 auto;
+  width: 260px; /* ensure width */
+}
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #232F3E;
+  color: white;
+  padding: 10px 20px;
+}
+
+.site-header .logo a {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.search-bar input {
+  width: 250px;
+  padding: 5px;
+}
+
+.search-bar button {
+  padding: 6px 12px;
+  margin-left: 5px;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.categories {
+  background: #37475A;
+  padding: 10px 20px;
+}
+
+.categories ul {
+  display: flex;
+  list-style: none;
+}
+
+.categories li {
+  margin-right: 15px;
+}
+
+.categories a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  background: #f3f3f3;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.product-card button {
+  padding: 8px 12px;
+  background: #FFA41C;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.site-footer {
+  background: #232F3E;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.site-footer .footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.site-footer .footer-links li {
+  margin: 0 10px;
+}
+
+.site-footer .footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+

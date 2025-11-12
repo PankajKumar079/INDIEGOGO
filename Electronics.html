@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Electronics — ShopCrowd</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Open Sans", Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background-color: white;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+    }
+
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: ba;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Cards Section */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px;
+      background: #fafafa;
+    }
+
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-content h3 {
+      margin: 0 0 5px;
+      font-size: 1.1rem;
+      color: #111;
+    }
+
+    .card-content p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #eb1478;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="https://cdn.static.indiegogo.com/content/20251107.4-13/images/static/logo/site-logo.svg" alt="INDIEGOGO">
+</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="design.html">Design</a>
+      <a href="electronics.html">Electronics</a>
+    
+ 
+    </nav>
+  </header>
+
+  <section class="projects" id="projects"></section>
+
+  <footer>
+    © 2025 INDIEGOGO — Inspired by Indiegogo
+  </footer>
+
+  <script>
+    const projects = [
+            { id:101, title:'Smartphone X Pro', image:'https://images.unsplash.com/photo-1706379062668-5685e457c10d?auto=format&fit=crop&q=60', pledged:85000, goal:100000, backers:420, author:'GadgetCorp' },
+      { id:102, title:'Foldable Tablet Z', image:'https://images.unsplash.com/photo-1655803253755-380476b78d84?auto=format&fit=crop&q=60', pledged:46000, goal:50000, backers:230, author:'TechNova' },
+      { id:103, title:'Wireless Earbuds Q', image:'https://images.unsplash.com/photo-1592507595940-edcec54727e2?auto=format&fit=crop&q=60', pledged:34000, goal:40000, backers:150, author:'SoundWave' },
+      { id:104, title:'4K Action Camera', image:'https://images.unsplash.com/photo-1666726552129-122d69dbb7cf?auto=format&fit=crop&q=60', pledged:92000, goal:80000, backers:510, author:'CamPro' },
+      {
+        id:1, title:'SolarCharge Pro — Pocket solar generator',
+        author:'SunLab', pledged:52000, goal:100000, backers:842, days:12,
+        image:'https://images.unsplash.com/photo-1697665896499-121af27e0030?auto=format&fit=crop&q=60'
+      },
+      {
+        id:2, title:'Foldable Bike for City', author:'UrbanMove', pledged:75000, goal:50000, backers:420, days:3,
+        image:'https://plus.unsplash.com/premium_photo-1677564626330-d68fabb71930?auto=format&fit=crop&q=60'
+      },
+      {
+        id:3, title:'Smart Herb Garden', author:'GrowEasy', pledged:12000, goal:15000, backers:95, days:20,
+        image:'https://images.unsplash.com/photo-1559579862-ab70f331d2e4?auto=format&fit=crop&q=60&w=400'
+      },
+      {
+        id:4, title:'Retro Arcade Console', author:'PlayBox', pledged:66000, goal:50000, backers:1034, days:5,
+        image:'https://images.unsplash.com/photo-1721372261034-525a25737f5f'
+      },
+      {
+        id:5, title:'Noise-cancelling Sleep Mask', author:'QuietCo', pledged:9000, goal:8000, backers:212, days:2,
+        image:'https://media.istockphoto.com/id/1150073564/photo/gray-modern-mask-for-sleeping-lies-on-a-white-pillow-healthy-and-comfortable-sleep.webp?a=1&b=1&s=612x612&w=0&k=20&c=eT-olVnkHrzN9qK6hMZqbiCWIlWziZ3XtsfezF1g7C8='
+      },
+      {
+        id: 6,
+        title: 'Spider-Man: The Book of Peter',
+        author: 'Holden T Hardman',
+        pledged: 5150,
+        goal: 8000,
+        backers: 793,
+        days: 2,
+        image: 'https://cdn.images.indiegogo.com/projectimage/projects/39853/5b4463dc-ea95-409b-93dd-1252f765e10d.jpg'
+      },
+      {
+        id: 7,
+        title: 'Librarian',
+        author: 'Caelan Conrad',
+        pledged: 9934,
+        goal: 20000,
+        backers:450,
+        days: 5,
+        image: 'https://cdn.images.indiegogo.com/projectimage/projects/41110/a4945609-3285-4e6b-a274-0dd6193f8e4e.jpg'
+      },
+      {
+        id: 8,
+        title: 'The R I.P Man 2',
+        author: 'Rhys Thompson',
+        pledged: 3885,
+        goal: 5000,
+        backers:699,
+        days: 20,
+        image: 'https://cdn.images.indiegogo.com/projectimage/projects/42658/5341f544-397b-4465-81dd-9011c9a1e1f9.jpg'
+      },
+       {
+        id: 9,
+        title: 'MamaCRM, Your Social Media Marketing Assistant',
+        author: 'Orestis Michael',
+        pledged: 9303,
+        goal: 10000,
+        backers:1200,
+        days: 30,
+        image: 'https://cdn.images.indiegogo.com/projectimage/projects/34484/c6b0ae22-4438-49a8-bfd6-a0859832ab91.png'
+      },
+       {
+        id: 10,
+        title: 'Stream Your Photos on Digital Billboards For Free!',
+        author: 'United For Humanity',
+        pledged: 6705,
+        goal: 10000,
+        backers:480,
+        days: 24,
+        image: 'https://cdn.images.indiegogo.com/projectimage/projects/40119/22d0c49a-76d2-496f-972b-ab6676ec9546.png'
+      },
+       {
+        id: 11,
+        title: 'America Down: A Post-Apocalyptic Feature Film',
+        author: 'Lucas Harmon',
+        pledged: 12011,
+        goal: 12000,
+        backers:900,
+        days: 30,
+        image: 'https://cdn.images.indiegogo.com/projectimage/projects/41337/d02ff551-7431-4494-8671-87fb0356f02d.png'
+      },
+             {
+        id: 12,
+        title: 'In Between - A Gay Romantic Comedy',
+        author: 'Nicholas Molencupp',
+        pledged: 10180,
+        goal: 15000,
+        backers:1230,
+        days: 45,
+        image: 'https://cdn.images.indiegogo.com/projectimage/projects/40912/43022915-61a9-4f96-a5e6-dc188bd4fb69.png'
+      },
+    ];
+
+    const projectsContainer = document.getElementById('projects');
+    projects.forEach(project => {
+      const cardHTML = `
+        <a href="${project.link}" target="_blank" class="card-link">
+          <div class="card">
+            <img src="${project.image}" alt="${project.title}">
+            <div class="card-content">
+              <h3>${project.title}</h3>
+              <p>by ${project.author}</p>
+            </div>
+          </div>
+        </a>
+      `;
+      projectsContainer.innerHTML += cardHTML;
+    });
+  </script>
+</body>
+</html>

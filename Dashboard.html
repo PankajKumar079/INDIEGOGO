@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard — ShopCrowd</title>
+  <style>
+    :root {
+      --brand: #EB1478;        /* Indiegogo style main colour */
+      --accent: #eb1478;       /* darker-pink accent */
+      --muted: #ac24ac;        /* muted text */
+      --card: #ffffff;         /* card background */
+      --bg: #d9d9d9;           /* light pink-purple background */
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    html, body {
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:#111;
+      height:auto;
+    }
+    .topbar {
+      background:white;
+      color:white;
+      padding:6px 16px;
+      font-size:14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .topbar .left, .topbar .right {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo {
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-weight:700;
+    }
+    .logo .mark {
+      background:white;
+      color:#111;
+      padding:6px 8px;
+      border-radius:4px;
+      font-weight:800;
+    }
+    .nav {
+      background:#EB1478;
+      color:white;
+      padding:10px 16px;
+      display:flex;
+      gap:18px;
+      align-items:center;
+      font-size:14px;
+    }
+    .nav div { cursor:pointer; }
+    .container {
+      max-width:1200px;
+      margin:20px auto;
+      padding:0 16px;
+    }
+    h1 { font-size:28px; margin-bottom:16px; }
+    .cards {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+      gap:16px;
+      margin-top:18px;
+    }
+    .card {
+      background:var(--card);
+      padding:14px;
+      border-radius:8px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.06);
+      display:flex;
+      flex-direction:column;
+      cursor:pointer;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover {
+      transform:scale(1.02);
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    }
+    .label { font-size:14px; color:var(--muted); margin-bottom:4px; }
+    .value { font-size:22px; font-weight:700; }
+    footer {
+      background:#111827;
+      color:#cbd5e1;
+      padding:24px 16px;
+      margin-top:28px;
+    }
+    .footer-grid {
+      max-width:1200px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:16px;
+    }
+    .footer-grid h4 { color:#fff; margin-bottom:8px; }
+    @media(max-width:900px){
+      h1 { font-size:24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="left">
+      <div class="logo"><div class="mark"></div><div>    <img src="https://cdn.static.indiegogo.com/content/20251107.4-13/images/static/logo/site-logo.svg" alt="INDIEGOGO"></a></div></div>
+      <div style="font-size:13px;opacity:0.95">Discover & Back Projects</div>
+    </div>
+    <div class="right">
+      <div style="font-size:13px;cursor:pointer" onclick="alert('Open account modal')">Account</div>
+      <div style="font-size:13px">Orders</div>
+      <div style="font-size:13px">Cart (0)</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <div style="font-weight:700" onclick="location.href='index.html'">All</div>
+    <div onclick="location.href='electronics.html'">Electronics</div>
+    <div onclick="location.href='design.html'">Design</div>
+    <div onclick="location.href='games.html'">Games</div>
+    <div onclick="location.href='fashion.html'">Fashion</div>
+  </div>
+
+  <!-- Main content -->
+  <main class="container">
+    <h1>Funds Dashboard</h1>
+    <div class="cards">
+      <div class="card">
+        <div class="label">Today’s Funds</div>
+        <div class="value" id="todayFunds">$0</div>
+      </div>
+      <div class="card">
+        <div class="label">Last Week Funds</div>
+        <div class="value" id="lastWeekFunds">$0</div>
+      </div>
+      <div class="card">
+        <div class="label">Overall Funds</div>
+        <div class="value" id="overallFunds">$0</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4>ShopCrowd</h4>
+        <div class="meta">An independent crowdfunding marketplace — interface inspired by big e-commerce layouts.</div>
+      </div>
+      <div>
+        <h4>Discover</h4>
+        <div>Popular campaigns</div>
+        <div>Categories</div>
+        <div>New launches</div>
+      </div>
+      <div>
+        <h4>About</h4>
+        <div>How it works</div>
+        <div>Creators</div>
+        <div>Resources</div>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <div>Contact</div>
+        <div>FAQ</div>
+        <div>Refund policy</div>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:18px auto 0;padding:0 16px;color:#9ca3af;font-size:13px">
+      © <span id="year"></span> ShopCrowd — All rights reserved
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // sample data
+    const today = 5000;
+    const lastWeek = 32304;
+    const overall = 450230;
+
+    document.getElementById('todayFunds').innerText = '$' + today.toLocaleString();
+    document.getElementById('lastWeekFunds').innerText = '$' + lastWeek.toLocaleString();
+    document.getElementById('overallFunds').innerText = '$' + overall.toLocaleString();
+  </script>
+
+</body>
+</html>
